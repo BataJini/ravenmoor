@@ -1,5 +1,11 @@
 # RAVENMOOR — a gothic tale
 
+### ▶ Play now: **https://batajini.github.io/ravenmoor/**
+
+No install, no download — it runs in any modern browser. Click to enter the moor.
+
+---
+
 An explorable gothic 3D world that runs in your browser. Built with Three.js —
 every model, texture, and sound is generated procedurally in code (no asset files).
 
@@ -9,8 +15,12 @@ last toll fades, **dawn breaks over the moor for good.**
 
 ## Play
 
-**Double-click `Play Ravenmoor.bat`** — it starts a tiny local server and opens
-the game in your browser. Or by hand: `node server.mjs` → http://localhost:8130
+- **Online:** just open **https://batajini.github.io/ravenmoor/** — nothing to install.
+- **Locally:** double-click `Play Ravenmoor.bat` (or `node server.mjs` →
+  http://localhost:8130). Three.js is vendored under `vendor/`, so it also works
+  fully offline.
+
+The site auto-deploys from `main` via GitHub Actions on every push.
 
 ## Controls
 
