@@ -31,10 +31,12 @@ const params = new URLSearchParams(location.search);
 const TEST = params.has('test');
 const SEED = Number(params.get('seed') || 7);
 
-// lightweight diagnostics -> server diag.log (only meaningful events)
+// lightweight diagnostics -> local server diag.log (only when developing;
+// silent on any deployed/static host so nothing leaks or 404s in production)
 let diagCount = 0;
+const DIAG_ON = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
 const DIAG = (ev, info = {}) => {
-  if (TEST || diagCount++ > 80) return;
+  if (!DIAG_ON || TEST || diagCount++ > 80) return;
   try {
     navigator.sendBeacon('/diag', JSON.stringify({ t: new Date().toISOString(), ev, ...info }));
   } catch { /* no server */ }
